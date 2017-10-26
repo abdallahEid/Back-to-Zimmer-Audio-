@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Audio_Back_to_Bach" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,99 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CQy-KC-5Xe">
+                                <rect key="frame" x="-20" y="20" width="415" height="647"/>
+                                <subviews>
+                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ehs-O0-1Dx">
+                                        <rect key="frame" x="20" y="0.0" width="375" height="44"/>
+                                        <items>
+                                            <navigationItem title="Back to Zimmer" id="tOh-sp-DNP">
+                                                <barButtonItem key="leftBarButtonItem" systemItem="pause" id="0qW-LX-Lym">
+                                                    <connections>
+                                                        <action selector="pause:" destination="BYZ-38-t0r" id="Ti2-u5-gab"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                                <barButtonItem key="rightBarButtonItem" systemItem="play" id="IKS-sd-wkl">
+                                                    <connections>
+                                                        <action selector="play:" destination="BYZ-38-t0r" id="c7G-vk-b7Y"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zimmer.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="EEo-lP-eUb">
+                                        <rect key="frame" x="88" y="78" width="240" height="261"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="261" id="fgv-YQ-OeU"/>
+                                            <constraint firstAttribute="width" constant="240" id="uOI-IG-HOd"/>
+                                        </constraints>
+                                    </imageView>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="mra-2H-z3b">
+                                        <rect key="frame" x="34" y="409" width="347" height="31"/>
+                                        <connections>
+                                            <action selector="seekerMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="Q4B-FK-EWK"/>
+                                        </connections>
+                                    </slider>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1uF-m9-wL9">
+                                        <rect key="frame" x="34" y="504" width="347" height="31"/>
+                                        <connections>
+                                            <action selector="volume:" destination="BYZ-38-t0r" eventType="valueChanged" id="V5t-WW-cZF"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seek" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zoq-KW-Mhk">
+                                        <rect key="frame" x="189" y="371" width="38" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMu-bo-wdq">
+                                        <rect key="frame" x="179" y="463" width="58" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="1uF-m9-wL9" firstAttribute="trailing" secondItem="CQy-KC-5Xe" secondAttribute="trailingMargin" constant="-28" id="1Ev-xB-b1f"/>
+                                    <constraint firstItem="mra-2H-z3b" firstAttribute="top" secondItem="EEo-lP-eUb" secondAttribute="bottom" constant="70" id="2Hj-X7-uNc"/>
+                                    <constraint firstItem="mra-2H-z3b" firstAttribute="trailing" secondItem="CQy-KC-5Xe" secondAttribute="trailingMargin" constant="-28" id="2z7-o1-S9t"/>
+                                    <constraint firstItem="EEo-lP-eUb" firstAttribute="centerX" secondItem="CQy-KC-5Xe" secondAttribute="centerX" id="4Zz-Ub-QMb"/>
+                                    <constraint firstItem="Ehs-O0-1Dx" firstAttribute="centerX" secondItem="CQy-KC-5Xe" secondAttribute="centerX" id="5Za-0O-qlU"/>
+                                    <constraint firstItem="mra-2H-z3b" firstAttribute="leading" secondItem="CQy-KC-5Xe" secondAttribute="leadingMargin" constant="28" id="5nQ-AX-0cW"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ehs-O0-1Dx" secondAttribute="trailing" constant="20" id="6JH-Yh-ZKj"/>
+                                    <constraint firstItem="zoq-KW-Mhk" firstAttribute="top" secondItem="EEo-lP-eUb" secondAttribute="bottom" constant="32" id="BrR-PF-XTE"/>
+                                    <constraint firstItem="1uF-m9-wL9" firstAttribute="leading" secondItem="CQy-KC-5Xe" secondAttribute="leadingMargin" constant="28" id="DLK-je-fA9"/>
+                                    <constraint firstAttribute="bottom" secondItem="1uF-m9-wL9" secondAttribute="bottom" constant="20" id="GJQ-Hq-KEl"/>
+                                    <constraint firstItem="1uF-m9-wL9" firstAttribute="top" secondItem="mra-2H-z3b" secondAttribute="bottom" constant="65" id="Jqd-1L-zdt"/>
+                                    <constraint firstItem="DMu-bo-wdq" firstAttribute="top" secondItem="mra-2H-z3b" secondAttribute="bottom" constant="24" id="M7a-TU-w3E"/>
+                                    <constraint firstItem="zoq-KW-Mhk" firstAttribute="centerX" secondItem="CQy-KC-5Xe" secondAttribute="centerX" id="Mct-jv-h8O"/>
+                                    <constraint firstItem="Ehs-O0-1Dx" firstAttribute="top" secondItem="CQy-KC-5Xe" secondAttribute="top" id="MwZ-xC-Qc9"/>
+                                    <constraint firstItem="EEo-lP-eUb" firstAttribute="top" secondItem="Ehs-O0-1Dx" secondAttribute="bottom" constant="34" id="RcY-bq-68T"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ehs-O0-1Dx" secondAttribute="trailing" constant="20" id="Z7J-jC-7ic"/>
+                                    <constraint firstItem="DMu-bo-wdq" firstAttribute="centerX" secondItem="CQy-KC-5Xe" secondAttribute="centerX" id="ql7-rd-aVu"/>
+                                    <constraint firstItem="Ehs-O0-1Dx" firstAttribute="leading" secondItem="CQy-KC-5Xe" secondAttribute="leading" constant="20" id="zIT-44-guP"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="CQy-KC-5Xe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-20" id="BB9-PT-iVQ"/>
+                            <constraint firstItem="CQy-KC-5Xe" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="MNF-Lu-0M8"/>
+                            <constraint firstAttribute="trailing" secondItem="CQy-KC-5Xe" secondAttribute="trailing" constant="-20" id="ZNr-4H-UuX"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CQy-KC-5Xe" secondAttribute="bottom" id="yQw-eD-UTu"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="seeker" destination="mra-2H-z3b" id="nnJ-8k-Wp0"/>
+                        <outlet property="volumeText" destination="1uF-m9-wL9" id="9PK-Z1-mXl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="zimmer.jpg" width="400" height="400"/>
+    </resources>
 </document>
